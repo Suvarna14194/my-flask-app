@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iris Classifier - MLOps Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 flex flex-col items-center min-h-screen py-10">
+  <div class="bg-white shadow-xl rounded-xl p-8 w-96">
+    <h1 class="text-2xl font-bold mb-4 text-center text-indigo-600">🌸 Iris Classifier</h1>
+    <form action="/predict" method="POST" class="space-y-3">
+      <input type="number" step="any" name="sepal_length" placeholder="Sepal Length" class="w-full p-2 border rounded">
+      <input type="number" step="any" name="sepal_width" placeholder="Sepal Width" class="w-full p-2 border rounded">
+      <input type="number" step="any" name="petal_length" placeholder="Petal Length" class="w-full p-2 border rounded">
+      <input type="number" step="any" name="petal_width" placeholder="Petal Width" class="w-full p-2 border rounded">
+      <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+    <div class="mt-6 text-center">
+      <p class="text-lg font-semibold text-green-600">Prediction: {{ prediction }}</p>
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+      <a href="/dashboard" class="text-indigo-600 hover:underline">View Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>
